@@ -13,14 +13,11 @@ import (
 	"github.com/rs/zerolog/log"
 	"go.dagger.io/dagger/compiler"
 	"go.dagger.io/dagger/plancontext"
-	"go.dagger.io/dagger/solver"
 )
 
 func init() {
 	Register("ClientCommand", func() Task { return &clientCommandTask{} })
 }
-
-type clientCommandTask struct {
 }
 
 func (t clientCommandTask) Run(ctx context.Context, pctx *plancontext.Context, _ *solver.Solver, v *compiler.Value) (*compiler.Value, error) {
